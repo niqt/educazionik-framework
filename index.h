@@ -20,6 +20,7 @@ private:
     QMap <QString, QString> m_indexMap;
     Index *m_next;
     Logic *m_logic;
+    int m_level;
 };
 
 #endif // INDEX_H

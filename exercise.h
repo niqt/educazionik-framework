@@ -5,24 +5,35 @@
 #include <QFile>
 #include <QString>
 #include <QStringList>
+#include <QVector>
 
 class Exercise : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Exercise(QObject *parent = 0);
-    
+    explicit Exercise(QString file, QObject *parent = 0);
+    QString answer();
+    QString question();
+    QStringList answers();
+    void next();
+    int answersNumber() const;
+
+
 signals:
     
 public slots:
     
 private:
+    QVector<QString> m_listQuestion, m_listAnswer;
+    QVector<int> m_check;
     QString m_answer;
     QString m_question;
     int m_nAnswer;
     QString m_fileName;
     QStringList m_answers;
+    bool m_error;
+    int m_answersNumber;
 };
 
 #endif // EXERCISE_H
