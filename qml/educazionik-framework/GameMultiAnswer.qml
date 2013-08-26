@@ -3,23 +3,30 @@ import QtQuick.Controls 1.0
 
 
 Rectangle {
-    width: 100
-    height: 62
-
-
 
     Text {
+        id: questionText
+        anchors.top: parent.top
         text: logic.question
-        anchors.centerIn: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
+        horizontalAlignment: Text.AlignHCenter
+        font.pointSize: 24
     }
+
+
 
     ListView {
         id: buttons
         width: 180; height: 200
+        anchors.top: questionText.bottom
+        anchors.centerIn: parent
 
         Component {
             id: contactsDelegate
+
             Button {
+
                 id: wrapper
                 width: 180
 
@@ -28,7 +35,6 @@ Rectangle {
                     logic.test(wrapper.text);
                     wrapper.enabled = false;
                     wrapper.opacity = 0.5
-                    console.log("jj")
                 }
             }
         }
@@ -39,8 +45,8 @@ Rectangle {
     }
 
     Text {
+        id: corrects
         text: logic.corrects
+        anchors.top : buttons.bottom
     }
-
-
 }
