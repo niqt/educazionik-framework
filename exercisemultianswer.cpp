@@ -1,8 +1,8 @@
-#include "exercise.h"
+#include "exercisemultiansewer.h"
 #include <QTextStream>
 #include <QFile>
 
-Exercise::Exercise(QString file, QObject *parent) :
+ExerciseMultiAnswer::ExerciseMultiAnswer(QString file, QObject *parent) :
     QObject(parent)
 {
     QString s;
@@ -31,22 +31,22 @@ Exercise::Exercise(QString file, QObject *parent) :
     srand(time(0));
 }
 
-QString Exercise::answer()
+QString ExerciseMultiAnswer::answer()
 {
     return m_answer;
 }
 
-QString Exercise::question()
+QString ExerciseMultiAnswer::question()
 {
     return m_question;
 }
 
-QStringList Exercise::answers()
+QStringList ExerciseMultiAnswer::answers()
 {
     return m_answers;
 }
 
-void Exercise::next()
+void ExerciseMultiAnswer::next()
 {
     QString s,dum;
     int i,j;
@@ -85,7 +85,7 @@ void Exercise::next()
 }
 
 
-int Exercise::answersNumber() const
+int ExerciseMultiAnswer::answersNumber() const
 {
     return m_answersNumber;
 }

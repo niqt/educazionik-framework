@@ -21,33 +21,33 @@ Rectangle {
         id: buttons
         width: 180; height: 300
         anchors.top: questionText.bottom
-        anchors.centerIn: parent
-
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin:  10
         Component {
             id: contactsDelegate
 
             Button {
-                width: 180
+                width: 280
+
                 id: wrapper
-
-
-                text: logic.answer(index)
+                text: ""
                 style: ButtonStyle {
                         label: Label {
                                 font.pointSize: 24
-                                text: wrapper.text
+                                text: modelData
                                 horizontalAlignment: Text.AlignHCenter
                             }
                         }
                 onClicked:  {
-                    logic.test(wrapper.text);
+                    logic.test(modelData);
                     wrapper.enabled = false;
                     wrapper.opacity = 0.5
                 }
+
             }
         }
 
-        model: logic.answersNumber()
+        model: logic.answers();
         delegate: contactsDelegate
         focus: true
     }
@@ -78,6 +78,7 @@ Rectangle {
         text: "Prossimo"
         style: ButtonStyle {
                 label: Label {
+                        id: label
                         font.pointSize: 24
                         text: next.text
                         horizontalAlignment: Text.AlignHCenter
@@ -88,11 +89,14 @@ Rectangle {
 
         onClicked:  {
             logic.next();
+            buttons.model = logic.answers();
             for (var counter = 0; counter < logic.answersNumber(); counter++) {
                 buttons.currentIndex = counter;
                 buttons.currentItem.enabled = true;
                 buttons.currentItem.opacity = 1;
+                //buttons.currentItem.text = logic.answer(counter);
             }
+
         }
     }
 

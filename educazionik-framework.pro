@@ -13,9 +13,9 @@ QML_IMPORT_PATH =
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    exercise.cpp \
     index.cpp \
-    logic.cpp
+    logic.cpp \
+    exercisemultianswer.cpp
 
 # Installation path
 # target.path =
@@ -25,8 +25,8 @@ include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    exercise.h \
     index.h \
-    logic.h
+    logic.h \
+    exercisemultiansewer.h
 
 

@@ -3,9 +3,11 @@
 Logic::Logic(QString fileName, QObject *parent) :
     QObject(parent)
 {
-    m_exercise = new Exercise(fileName, parent);
+    m_exercise = new ExerciseMultiAnswer(fileName, parent);
     m_ok = 0;
     m_wrongs = 0;
+
+
 }
 
 void Logic::start()
@@ -13,6 +15,7 @@ void Logic::start()
     m_ok = 0;
     m_wrongs = 0;
     next();
+
 }
 
 void Logic::next()
@@ -20,9 +23,13 @@ void Logic::next()
     m_exercise->next();
     m_isOk = false;
     m_alternativeStatus.clear();
+
     QStringList answers = m_exercise->answers();
+   m_model.clear();
+
     for (int i = 0; i < answers.length(); i++) {
         m_alternativeStatus.insert(answers.at(i), false);
+
     }
     emit questionChanged();
 }

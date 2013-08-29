@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 
     QtQuick2ApplicationViewer viewer;
 
-    Logic logic("/tmp/aggettivi.txt");
+    Logic logic("/tmp/aggettivi.txt",  viewer.rootContext());
 
     viewer.rootContext()->setContextProperty("logic", &logic);
     viewer.setMainQmlFile(QStringLiteral("qml/educazionik-framework/main.qml"));

@@ -7,12 +7,12 @@
 #include <QStringList>
 #include <QVector>
 
-class Exercise : public QObject
+class ExerciseMultiAnswer : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Exercise(QString file, QObject *parent = 0);
+    explicit ExerciseMultiAnswer(QString file, QObject *parent = 0);
     QString answer();
     QString question();
     QStringList answers();
