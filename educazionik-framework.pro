@@ -29,4 +29,7 @@ HEADERS += \
     logic.h \
     exercisemultiansewer.h
 
+RESOURCES += \
+    educazioni.qrc
+
 

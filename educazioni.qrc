@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>aggettivi.txt</file>
+    </qresource>
+</RCC>
