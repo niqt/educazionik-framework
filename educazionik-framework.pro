@@ -22,7 +22,7 @@ SOURCES += main.cpp \
     index.cpp \
     logic.cpp \
     exercisemultianswer.cpp \
-    exerciseoneanswer.cpp
+    exercisevocabularyanswer.cpp
 
 # Installation path
 # target.path =
@@ -35,9 +35,12 @@ HEADERS += \
     index.h \
     logic.h \
     exercisemultiansewer.h \
-    exerciseoneanswer.h
+    exercisevocabularyanswer.h
 
 RESOURCES += \
     educazioni.qrc
+
+OTHER_FILES += \
+    qml/educazionik-framework/GameVocabularyAnswer.qml
 
 

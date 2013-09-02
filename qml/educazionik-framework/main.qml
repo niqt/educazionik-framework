@@ -10,7 +10,7 @@ Item {
     }
     Component.onCompleted :{
         logic.start();
-        pageLoader.source = "GameMultiAnswer.qml";
+        pageLoader.source = "GameVocabularyAnswer.qml";
     }
 
 

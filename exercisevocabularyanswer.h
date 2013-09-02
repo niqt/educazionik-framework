@@ -1,5 +1,5 @@
-#ifndef EXERCISEONEANSWER_H
-#define EXERCISEONEANSWER_H
+#ifndef EXERCISEVOCABULARYANSWER_H
+#define EXERCISEVOCABULARYANSWER_H
 
 
 
@@ -9,12 +9,12 @@
 #include <QStringList>
 #include <QVector>
 
-class ExerciseOneAnswer : public QObject
+class ExerciseVocabularyAnswer : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit ExerciseOneAnswer(QString file, QObject *parent = 0);
+    explicit ExerciseVocabularyAnswer(QString file, QObject *parent = 0);
     bool answerFounded(QString answer);
 
 

@@ -1,7 +1,8 @@
-#include "exerciseoneanswer.h"
+#include "exercisevocabularyanswer.h"
 #include <QFile>
+#include <QTextStream>
 
-ExerciseOneAnswer::ExerciseOneAnswer(QString file, QObject *parent = 0)
+ExerciseVocabularyAnswer::ExerciseVocabularyAnswer(QString file, QObject *parent)
 {
     QFile fd;
     m_fileName = file;
@@ -14,7 +15,7 @@ ExerciseOneAnswer::ExerciseOneAnswer(QString file, QObject *parent = 0)
     }
 }
 
-bool ExerciseOneAnswer::answerFounded(QString answer)
+bool ExerciseVocabularyAnswer::answerFounded(QString answer)
 {
     QString s;
     QFile fd;
