@@ -21,7 +21,8 @@ qtHaveModule(widgets) {
 SOURCES += main.cpp \
     index.cpp \
     logic.cpp \
-    exercisemultianswer.cpp
+    exercisemultianswer.cpp \
+    exerciseoneanswer.cpp
 
 # Installation path
 # target.path =
@@ -33,7 +34,8 @@ qtcAddDeployment()
 HEADERS += \
     index.h \
     logic.h \
-    exercisemultiansewer.h
+    exercisemultiansewer.h \
+    exerciseoneanswer.h
 
 RESOURCES += \
     educazioni.qrc
