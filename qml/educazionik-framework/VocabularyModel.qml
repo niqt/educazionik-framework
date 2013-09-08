@@ -7,15 +7,15 @@ ListModel {
     }
     ListElement {
         letter: "B"
-        sons: "na,ne,ni,no,nu"
+        sons: "BA,BE,BI,BO,BU"
     }
     ListElement {
         letter: "C"
-        sons: "ma,me,mi,mo,mu"
+        sons: "CA,CE,CI,CO,CU,CHE,CHI"
     }
     ListElement {
         letter: "D"
-        sons: "na,ne,ni,no,nu"
+        sons: "DA,DE,DI,DO,DU"
     }
     ListElement {
         letter: "E"
@@ -23,15 +23,15 @@ ListModel {
     }
     ListElement {
         letter: "F"
-        sons: "na,ne,ni,no,nu"
+        sons: "FA,FE,FI,FO,FU"
     }
     ListElement {
         letter: "G"
-        sons: "ma,me,mi,mo,mu"
+        sons: "GA,GE,GI,GO,GU,GHI,GHE"
     }
     ListElement {
         letter: "H"
-        sons: "na,ne,ni,no,nu"
+        sons: "HA,HE,HI,HO,HU"
     }
     ListElement {
         letter: "I"
@@ -39,15 +39,15 @@ ListModel {
     }
     ListElement {
         letter: "L"
-        sons: "na,ne,ni,no,nu"
+        sons: "LA,LE,LI,LO,LU"
     }
     ListElement {
         letter: "M"
-        sons: "ma,me,mi,mo,mu"
+        sons: "MA,ME,MI,MO,MU"
     }
     ListElement {
         letter: "N"
-        sons: "na,ne,ni,no,nu"
+        sons: "NA,NE,NI,NO,NU"
     }
     ListElement {
         letter: "O"
@@ -55,23 +55,23 @@ ListModel {
     }
     ListElement {
         letter: "P"
-        sons: "na,ne,ni,no,nu"
+        sons: "PA,PE,PI,PO,PU"
     }
     ListElement {
         letter: "Q"
-        sons: "ma,me,mi,mo,mu"
+        sons: "QUA,QUE,QUI,QUO"
     }
     ListElement {
         letter: "R"
-        sons: "na,ne,ni,no,nu"
+        sons: "RA,RE,RI,RO,RU"
     }
     ListElement {
         letter: "S"
-        sons: "ma,me,mi,mo,mu"
+        sons: "SA,SE,SI,SO, SU"
     }
     ListElement {
         letter: "T"
-        sons: "na,ne,ni,no,nu"
+        sons: "TA,TE,TI,TO,TU"
     }
     ListElement {
         letter: "U"
@@ -79,11 +79,11 @@ ListModel {
     }
     ListElement {
         letter: "V"
-        sons: "na,ne,ni,no,nu"
+        sons: "VA,VE,VI,VO,VU"
     }
     ListElement {
         letter: "Z"
-        sons: "ma,me,mi,mo,mu"
+        sons: "ZA,ZE,ZI,ZO,ZU"
     }
 
 }
