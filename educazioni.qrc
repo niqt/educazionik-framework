@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>aggettivi.txt</file>
+        <file>parole.txt</file>
     </qresource>
 </RCC>
