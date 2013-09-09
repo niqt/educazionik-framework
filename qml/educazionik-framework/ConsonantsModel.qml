@@ -2,11 +2,6 @@ import QtQuick 2.0
 
 ListModel {
     ListElement {
-        letter: "A"
-        sons1: "A"
-        sons2: ""
-    }
-    ListElement {
         letter: "B"
         sons1: "BA,BE,BI,BO,BU"
         sons2: ""
@@ -22,11 +17,6 @@ ListModel {
         sons2: ""
     }
     ListElement {
-        letter: "E"
-        sons1: "ma,me,mi,mo,mu"
-        sons2: ""
-    }
-    ListElement {
         letter: "F"
         sons1: "FA,FE,FI,FO,FU"
         sons2: ""
@@ -39,10 +29,6 @@ ListModel {
     ListElement {
         letter: "H"
         sons1: "HA,HE,HI,HO,HU"
-    }
-    ListElement {
-        letter: "I"
-        sons1: ""
         sons2: ""
     }
     ListElement {
@@ -61,18 +47,13 @@ ListModel {
         sons2: ""
     }
     ListElement {
-        letter: "O"
-        sons1: ""
-        sons2: ""
-    }
-    ListElement {
         letter: "P"
         sons1: "PA,PE,PI,PO,PU"
         sons2: ""
     }
     ListElement {
         letter: "Q"
-        sons1: "QUA,QUE,QUI,QUO"
+        sons1: "QUA,QUE,QUI,QUO,QU"
         sons2: ""
     }
     ListElement {
@@ -88,11 +69,6 @@ ListModel {
     ListElement {
         letter: "T"
         sons1: "TA,TE,TI,TO,TU"
-        sons2: ""
-    }
-    ListElement {
-        letter: "U"
-        sons1: ""
         sons2: ""
     }
     ListElement {

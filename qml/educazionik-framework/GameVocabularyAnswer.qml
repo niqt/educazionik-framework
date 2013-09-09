@@ -23,7 +23,8 @@ Rectangle {
                     text: letter
                     id:l
                     onClicked: {
-                        syllabe.model = sons1.split(",");
+                        var son = letter + "," + sons1
+                        syllabeList.model = son.split(",");
 
                         syllabe2.model = "";
                         if (sons2 != "")
@@ -38,7 +39,6 @@ Rectangle {
         model: ConsonantsModel {}
         delegate: delegate
     }
-
 
     ListView {
         width: 120; height: 50
@@ -57,8 +57,8 @@ Rectangle {
                     text: letter
                     id:l
                     onClicked: {
-                        //syllabe.model = sons1.split(",");
 
+                        word.text = word.text + letter
                     }
                 }
 
@@ -70,23 +70,27 @@ Rectangle {
         delegate: voiceDelegate
     }
 
-
     Rectangle {
         id: sub2
         width: 380; height: 30
         anchors.top: voice.bottom
         border.color:  "black"
 
-
         ListView {
-            id: syllabe
+            id: syllabeList
             orientation: ListView.Horizontal
+
             width: 380; height: 30
             Component {
                 id: a
                 Button {
+
                     width: 40; height: 20
                     text: modelData
+                    onClicked: {
+                        //syllabe.model = sons1.split(",");
+                        word.text = word.text + modelData
+                    }
                 }
             }
             delegate: a
@@ -99,17 +103,24 @@ Rectangle {
         width: 380; height: 30
         anchors.top: sub2.bottom
         border.color:  "green"
-
+        anchors.left: voice.left
 
         ListView {
             id: syllabe2
             orientation: ListView.Horizontal
             width: 380; height: 30
+
+
             Component {
                 id: row2
                 Button {
+
                     width: 40; height: 20
                     text: modelData
+                    onClicked: {
+                        //syllabe.model = sons1.split(",");
+                        word.text = word.text + modelData
+                    }
                 }
             }
             delegate: row2
@@ -119,8 +130,39 @@ Rectangle {
 
 
     Rectangle {
-        id: sub3
+        id: command
+        height: 40
         anchors.top: sub22.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        anchors.topMargin: 10
+        //height: 100
+        border.color:  "red"
+        Button {
+            id: leftRow
+            text: "Left"
+            anchors.left: parent.left
+        }
+        Text {
+            id: word
+            text: ""
+            horizontalAlignment: Text.AlignHCenter
+            anchors.left: leftRow.right
+            anchors.right: rightRow.left
+        }
+
+        Button {
+            id: rightRow
+            text: "Right"
+            anchors.right: parent.right
+        }
+
+    }
+
+    Rectangle {
+        id: sub3
+        anchors.top: command.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: mainRect.bottom
@@ -136,13 +178,22 @@ Rectangle {
             id: verifica
             text: "Verifica"
             anchors.right: parent.right
+            onClicked: {
+                if (vocabulary.answerFounded(word.text))
+                    correctsModel.append({"text" : word.text})
+
+            }
         }
         ListView {
             width: sub3.width
             height: 300
             anchors.top: ascolta.bottom
             id: corrects
-            model: ["a","b"]
+            model: ListModel {
+                id: correctsModel
+
+            }
+
             delegate: Text {
                 text: modelData
             }

@@ -15,7 +15,7 @@ class ExerciseVocabularyAnswer : public QObject
 
 public:
     explicit ExerciseVocabularyAnswer(QString file, QObject *parent = 0);
-    bool answerFounded(QString answer);
+    Q_INVOKABLE bool answerFounded(QString answer);
 
 
 signals:
