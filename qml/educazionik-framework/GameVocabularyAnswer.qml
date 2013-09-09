@@ -11,7 +11,7 @@ Rectangle {
 
     ListView {
         width: 620; height: 50
-        id: letters
+        id: consonants
         orientation: ListView.Horizontal
         Component {
             id: delegate
@@ -23,7 +23,41 @@ Rectangle {
                     text: letter
                     id:l
                     onClicked: {
-                        syllabe.model = sons.split(",");
+                        syllabe.model = sons1.split(",");
+
+                        syllabe2.model = "";
+                        if (sons2 != "")
+                            syllabe2.model = sons2.split(",");
+                    }
+                }
+
+
+            }
+        }
+
+        model: ConsonantsModel {}
+        delegate: delegate
+    }
+
+
+    ListView {
+        width: 120; height: 50
+        id: voice
+        orientation: ListView.Horizontal
+        anchors.top: consonants.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 30
+        Component {
+            id: voiceDelegate
+            Rectangle {
+                width: 30; height: 30
+
+                Button {
+                    width: 30
+                    text: letter
+                    id:l
+                    onClicked: {
+                        //syllabe.model = sons1.split(",");
 
                     }
                 }
@@ -32,15 +66,15 @@ Rectangle {
             }
         }
 
-        model: VocabularyModel {}
-        delegate: delegate
+        model: VoiceModel {}
+        delegate: voiceDelegate
     }
 
 
     Rectangle {
         id: sub2
         width: 380; height: 30
-        anchors.top: letters.bottom
+        anchors.top: voice.bottom
         border.color:  "black"
 
 
@@ -60,10 +94,33 @@ Rectangle {
         }
     }
 
+    Rectangle {
+        id: sub22
+        width: 380; height: 30
+        anchors.top: sub2.bottom
+        border.color:  "green"
+
+
+        ListView {
+            id: syllabe2
+            orientation: ListView.Horizontal
+            width: 380; height: 30
+            Component {
+                id: row2
+                Button {
+                    width: 40; height: 20
+                    text: modelData
+                }
+            }
+            delegate: row2
+            model: ""
+        }
+    }
+
 
     Rectangle {
         id: sub3
-        anchors.top: sub2.bottom
+        anchors.top: sub22.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: mainRect.bottom
