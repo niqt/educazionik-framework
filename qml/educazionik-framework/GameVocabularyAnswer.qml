@@ -6,20 +6,26 @@ import QtQuick.Controls.Styles 1.0
 
 Rectangle {
     id: mainRect
-    width: 500
-    height: 600
+    anchors.left: parent.left
+    anchors.right: parent.right
+
+    property int withButton: 60
+    property int heightButton: 40
 
     ListView {
-        width: 620; height: 50
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 70
         id: consonants
         orientation: ListView.Horizontal
         Component {
             id: delegate
             Rectangle {
-                width: 30; height: 30
+                width: withButton; height: heightButton
 
                 Button {
-                    width: 30
+                    width: withButton
+                    height: heightButton
                     text: letter
                     id:l
                     onClicked: {
@@ -41,24 +47,27 @@ Rectangle {
     }
 
     ListView {
-        width: 120; height: 50
+        height: 70
         id: voice
         orientation: ListView.Horizontal
         anchors.top: consonants.bottom
         anchors.left: parent.left
-        anchors.leftMargin: 30
+        anchors.leftMargin: 60
+        anchors.right: parent.right
+
         Component {
             id: voiceDelegate
             Rectangle {
-                width: 30; height: 30
+                width: withButton; height: 70
 
                 Button {
-                    width: 30
+                    width: withButton
+                    height: heightButton
                     text: letter
                     id:l
                     onClicked: {
-
-                        word.text = word.text + letter
+                        wordModel.append({"text" : letter})
+                        leftRow.enabled = true;
                     }
                 }
 
@@ -72,24 +81,24 @@ Rectangle {
 
     Rectangle {
         id: sub2
-        width: 380; height: 30
+        width: 380; height: 60
         anchors.top: voice.bottom
-        border.color:  "black"
+        //border.color:  "black"
 
         ListView {
             id: syllabeList
             orientation: ListView.Horizontal
 
-            width: 380; height: 30
+            width: 380; height: 40
             Component {
                 id: a
                 Button {
-
-                    width: 40; height: 20
+                    width: withButton
+                    height: heightButton
                     text: modelData
                     onClicked: {
-                        //syllabe.model = sons1.split(",");
-                        word.text = word.text + modelData
+                        wordModel.append({"text" : modelData})
+                        leftRow.enabled = true;
                     }
                 }
             }
@@ -100,26 +109,28 @@ Rectangle {
 
     Rectangle {
         id: sub22
-        width: 380; height: 30
+        height: 70
         anchors.top: sub2.bottom
-        border.color:  "green"
+        //border.color:  "green"
         anchors.left: voice.left
+        anchors.right: parent.right
 
         ListView {
             id: syllabe2
             orientation: ListView.Horizontal
-            width: 380; height: 30
+            width: parent.width; height: 70
 
 
             Component {
                 id: row2
                 Button {
 
-                    width: 40; height: 20
+                    width: withButton
+                    height: withButton
                     text: modelData
                     onClicked: {
-                        //syllabe.model = sons1.split(",");
-                        word.text = word.text + modelData
+                        wordModel.append({"text" : modelData})
+                        leftRow.enabled = true;
                     }
                 }
             }
@@ -135,27 +146,47 @@ Rectangle {
         anchors.top: sub22.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-
         anchors.topMargin: 10
-        //height: 100
-        border.color:  "red"
+        //border.color:  "red"
+
         Button {
             id: leftRow
-            text: "Left"
+            text: "Elimina"
             anchors.left: parent.left
+            enabled: false
+            onClicked: {
+                wordModel.remove(wordModel.count - 1);
+                if (wordModel.count == 0)
+                    leftRow.enabled = false;
+
+            }
         }
-        Text {
+
+
+        ListView {
             id: word
-            text: ""
-            horizontalAlignment: Text.AlignHCenter
+            orientation: ListView.Horizontal
+
             anchors.left: leftRow.right
             anchors.right: rightRow.left
+
+
+            model: ListModel {
+                id: wordModel
+
+            }
+
+            delegate: Text {
+                text: modelData
+            }
         }
+
 
         Button {
             id: rightRow
             text: "Right"
             anchors.right: parent.right
+            enabled: false
         }
 
     }
@@ -167,20 +198,28 @@ Rectangle {
         anchors.right: parent.right
         anchors.bottom: mainRect.bottom
         anchors.topMargin: 10
-        //height: 100
-        border.color:  "red"
+
+        //border.color:  "red"
         Button {
             id: ascolta
             text: "Ascolta"
             anchors.left: parent.left
+            enabled: false
         }
         Button {
             id: verifica
             text: "Verifica"
             anchors.right: parent.right
             onClicked: {
-                if (vocabulary.answerFounded(word.text))
-                    correctsModel.append({"text" : word.text})
+                var insertedWord = "";
+                for (var i = 0; i < wordModel.count; i++)
+                    insertedWord += wordModel.get(i).text;
+
+                if (vocabulary.answerFounded(insertedWord)) {
+                    correctsModel.append({"text" : insertedWord})
+                    wordModel.clear();
+                    leftRow.enabled = false;
+                }
 
             }
         }

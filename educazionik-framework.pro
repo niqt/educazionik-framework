@@ -41,6 +41,7 @@ RESOURCES += \
     educazioni.qrc
 
 OTHER_FILES += \
-    qml/educazionik-framework/GameVocabularyAnswer.qml
+    qml/educazionik-framework/GameVocabularyAnswer.qml \
+    qml/educazionik-framework/ConsonantsModel.qml
 
 
