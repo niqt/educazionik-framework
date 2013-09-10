@@ -11,8 +11,19 @@ Rectangle {
 
     property int withButton: 60
     property int heightButton: 40
+    property variant colors: ["red", "green", "yellow", "orange", "blue", "black", "steelblue"]
+    property int headFontSize: 24
+
+    Text {
+        id: head1
+        text: "Consonanti"
+        anchors.top: parent.top
+        font.pointSize: headFontSize
+        anchors.bottomMargin: 10
+    }
 
     ListView {
+        anchors.top: head1.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         height: 70
@@ -29,6 +40,8 @@ Rectangle {
                     text: letter
                     id:l
                     onClicked: {
+                        syllabeHead.visible = true;
+
                         var son = letter + "," + sons1
                         syllabeList.model = son.split(",");
 
@@ -46,11 +59,20 @@ Rectangle {
         delegate: delegate
     }
 
+
+    Text {
+        id: head2
+        text: "Vocali"
+        font.pointSize: headFontSize
+        anchors.top: consonants.bottom
+        anchors.bottomMargin: 10
+    }
+
     ListView {
         height: 70
         id: voice
         orientation: ListView.Horizontal
-        anchors.top: consonants.bottom
+        anchors.top: head2.bottom
         anchors.left: parent.left
         anchors.leftMargin: 60
         anchors.right: parent.right
@@ -66,6 +88,7 @@ Rectangle {
                     text: letter
                     id:l
                     onClicked: {
+
                         wordModel.append({"text" : letter})
                         leftRow.enabled = true;
                     }
@@ -79,10 +102,20 @@ Rectangle {
         delegate: voiceDelegate
     }
 
+    Text {
+        id: syllabeHead
+        text: "Sillabe"
+        font.pointSize: headFontSize
+        anchors.top: voice.bottom
+        anchors.bottomMargin: 10
+        visible: false
+    }
+
+
     Rectangle {
         id: sub2
         width: 380; height: 60
-        anchors.top: voice.bottom
+        anchors.top: syllabeHead.bottom
         //border.color:  "black"
 
         ListView {
@@ -126,7 +159,7 @@ Rectangle {
                 Button {
 
                     width: withButton
-                    height: withButton
+                    height: heightButton
                     text: modelData
                     onClicked: {
                         wordModel.append({"text" : modelData})
@@ -169,7 +202,8 @@ Rectangle {
 
             anchors.left: leftRow.right
             anchors.right: rightRow.left
-
+            anchors.leftMargin: 30
+            anchors.rightMargin: 30
 
             model: ListModel {
                 id: wordModel
@@ -178,6 +212,8 @@ Rectangle {
 
             delegate: Text {
                 text: modelData
+                font.pointSize: 18
+                color: colors[index % colors.length]
             }
         }
 
@@ -223,10 +259,21 @@ Rectangle {
 
             }
         }
+
+
+        Text {
+            id: head4
+            text: "Parole Esatte"
+            font.pointSize: headFontSize
+            anchors.top: ascolta.bottom
+            anchors.bottomMargin: 10
+        }
+
+
         ListView {
             width: sub3.width
             height: 300
-            anchors.top: ascolta.bottom
+            anchors.top: head4.bottom
             id: corrects
             model: ListModel {
                 id: correctsModel
@@ -235,6 +282,7 @@ Rectangle {
 
             delegate: Text {
                 text: modelData
+
             }
         }
     }

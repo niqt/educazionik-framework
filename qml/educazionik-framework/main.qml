@@ -2,8 +2,8 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 
 Item {
-    width: 720
-    height: 360
+    width: 1024
+    height: 768
     Loader {
         id: pageLoader
         anchors.fill: parent
