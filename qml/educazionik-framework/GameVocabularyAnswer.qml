@@ -189,6 +189,7 @@ Rectangle {
             enabled: false
             onClicked: {
                 wordModel.remove(wordModel.count - 1);
+
                 if (wordModel.count == 0)
                     leftRow.enabled = false;
 
@@ -211,9 +212,9 @@ Rectangle {
             }
 
             delegate: Text {
-                text: modelData
+                text: modelData + index
                 font.pointSize: 18
-                color: colors[index % colors.length]
+                color: colors[((index < 0)?0:index) % colors.length]
             }
         }
 
