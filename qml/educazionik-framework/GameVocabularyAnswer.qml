@@ -212,7 +212,7 @@ Rectangle {
             }
 
             delegate: Text {
-                text: modelData + index
+                text: modelData
                 font.pointSize: 18
                 color: colors[((index < 0)?0:index) % colors.length]
             }
