@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sets>
+  <exercise>
+    <setA>
+      <element cardinality="4" type="image">apple.jpg</element>
+    </setA>
+    <setB>
+      <element cardinality="4" type="image">tomato.jpg</element>
+    </setB>
+    <solution> 4
+      <!--
+	0 equals
+	1 <
+	2 >
+	3 =
+	4 equi
+	-->
+    </solution>
+  </exercise>
+  <exercise>
+    <setA>
+      <element cardinality="1" type="text">apple</element>
+      <element cardinality="1" type="text">tomato</element>
+      <element cardinality="1" type="text">ananas</element>
+      <element cardinality="1" type="text">orange</element>
+    </setA>
+    <setB>
+      <element cardinality="1" type="text">pen</element>
+      <element cardinality="1" type="text">stencil</element>
+      <element cardinality="1" type="text">pencil</element>
+      <element cardinality="1" type="text">brush</element>
+    </setB>
+    <solution> 4
+      <!--
+	0 equals
+	1 <
+	2 >
+	3 =
+	4 equi
+	-->
+    </solution>
+  </exercise>
+</sets>
