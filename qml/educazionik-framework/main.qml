@@ -10,7 +10,8 @@ Item {
     }
     Component.onCompleted :{
         logic.start();
-        pageLoader.source = "GameVocabularyAnswer.qml";
+        //pageLoader.source = "GameVocabularyAnswer.qml";
+        pageLoader.source = "CompareSet.qml";
     }
 
 

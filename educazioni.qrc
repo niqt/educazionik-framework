@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>aggettivi.txt</file>
         <file>parole.txt</file>
+        <file>sets.xml</file>
     </qresource>
 </RCC>
