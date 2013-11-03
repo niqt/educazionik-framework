@@ -3,7 +3,7 @@
 #include "logic.h"
 #include <QQmlContext>
 #include "exercisevocabularyanswer.h"
-
+#include "set.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("vocabulary", &vocabulary);
     viewer.setMainQmlFile(QStringLiteral("qml/educazionik-framework/main.qml"));
     viewer.showExpanded();
-
+    Set set;
+    set.load("/tmp/sets.xml");
     return app.exec();
 }
