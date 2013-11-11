@@ -19,17 +19,53 @@ void Set::load(QString fileName)
     {
 
         xmlStream.readNext();
-        //if(xmlStream.isStartElement())
-        qDebug() << xmlStream.text();
-       qDebug() << xmlStream.tokenString() << "\n";
-        if (xmlStream.tokenType() == QXmlStreamReader::StartDocument)
+        //qDebug() << xmlStream.name() << "type" << xmlStream.tokenType();
+
+        if (xmlStream.tokenType() == QXmlStreamReader::StartElement)
         {
             // Read the tag name.
-            QString sec(xmlStream.tokenString());
-            qDebug() << " sec " << sec << endl;
-            // Check in settings map, whether there's already an entry. If not, insert.
-            //if(!_settingsMap.contains(sec))
-            //    _settingsMap.insert(sec, xmlStream.attributes());
+
+            if (xmlStream.name() == "exercise") {
+                qDebug() << xmlStream.name();
+                xmlStream.readNext();
+                if (xmlStream.name() == "")
+                    xmlStream.readNext();
+
+                if (xmlStream.name() == "setA") {
+                    qDebug() << xmlStream.name();
+                    xmlStream.readNext();
+                    xmlStream.readNext();
+
+                    while (xmlStream.name() != "setB") {
+                        if (xmlStream.name() == "element" && xmlStream.tokenType() == QXmlStreamReader::StartElement) {
+                            qDebug() << "card " << xmlStream.attributes().value("cardinality").toString();
+                            qDebug() << " type " << xmlStream.attributes().value("type").toString() << endl;
+                            xmlStream.readNext();
+                            qDebug() << " Value = " << xmlStream.text().toString() << endl;
+                        }
+                        xmlStream.readNext();
+                    }
+                    qDebug() << xmlStream.name();
+                    while (!(xmlStream.name() == "setB" && xmlStream.tokenType() == QXmlStreamReader::EndElement)) {
+                        if (xmlStream.name() == "element" && xmlStream.tokenType() == QXmlStreamReader::StartElement) {
+                            qDebug() << "card " << xmlStream.attributes().value("cardinality").toString();
+                            qDebug() << " type " << xmlStream.attributes().value("type").toString() << endl;
+                            xmlStream.readNext();
+                            qDebug() << " Value = " << xmlStream.text().toString() << endl;
+                        }
+                        xmlStream.readNext();
+                    }
+                    while (!(xmlStream.name() == "solution" && xmlStream.tokenType() == QXmlStreamReader::EndElement)) {
+                        if (xmlStream.name() == "solution" && xmlStream.tokenType() == QXmlStreamReader::StartElement) {
+
+                            xmlStream.readNext();
+                            qDebug() << " solution = " << xmlStream.text().toString() << endl;
+                        }
+                        xmlStream.readNext();
+                    }
+                }
+            }
+
         }
     }
     qDebug() << "Fine\n";
