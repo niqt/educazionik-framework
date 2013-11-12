@@ -1,6 +1,18 @@
 #include "setitem.h"
 
-SetItem::SetItem(QObject *parent) :
-    QObject(parent)
+SetItem::SetItem()
 {
+}
+
+SetItem::SetItem(const SetItem &other)
+{
+    m_type = other.m_type;
+    m_value = other.m_value;
+}
+
+SetItem& SetItem::operator=(const SetItem &other)
+{
+    m_type = other.m_type;
+    m_value = other.m_value;
+    return *this;
 }

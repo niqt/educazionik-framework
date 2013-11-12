@@ -2,13 +2,18 @@
 #define SETITEM_H
 
 #include <QObject>
+#include <QString>
 
-class SetItem : public QObject
+class SetItem
 {
-    Q_OBJECT
-public:
-    explicit SetItem(QObject *parent = 0);
 
+private:
+    QString m_type;
+    QString m_value;
+public:
+    explicit SetItem();
+    SetItem(const SetItem &other);
+    SetItem &operator=(const SetItem &other);
 signals:
 
 public slots:
