@@ -3,6 +3,8 @@ import QtQuick 2.0
 
 
 
+Item {
+    id: set
 
 Rectangle {
     width: 400
@@ -61,4 +63,5 @@ Rectangle {
             }
         }
     }
+}
 }

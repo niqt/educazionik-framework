@@ -14,11 +14,18 @@ int main(int argc, char *argv[])
     Logic logic(":/aggettivi.txt",  viewer.rootContext());
     ExerciseVocabularyAnswer vocabulary(":/parole.txt");
 
-    viewer.rootContext()->setContextProperty("logic", &logic);
-    viewer.rootContext()->setContextProperty("vocabulary", &vocabulary);
-    viewer.setMainQmlFile(QStringLiteral("qml/educazionik-framework/main.qml"));
-    viewer.showExpanded();
     Set set;
     set.load("/tmp/sets.xml");
+
+
+    viewer.rootContext()->setContextProperty("logic", &logic);
+    viewer.rootContext()->setContextProperty("vocabulary", &vocabulary);
+
+    viewer.rootContext()->setContextProperty("setexercise", &set);
+
+    viewer.addImportPath("qml/educazionik-framework/");
+    viewer.setMainQmlFile(QStringLiteral("qml/educazionik-framework/main.qml"));
+    viewer.showExpanded();
+
     return app.exec();
 }
