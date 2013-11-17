@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     exercisemultianswer.cpp \
     exercisevocabularyanswer.cpp \
     set.cpp \
-    setitem.cpp
+    setitem.cpp \
+    setexercise.cpp
 
 # Installation path
 # target.path =
@@ -39,7 +40,8 @@ HEADERS += \
     exercisemultiansewer.h \
     exercisevocabularyanswer.h \
     set.h \
-    setitem.h
+    setitem.h \
+    setexercise.h
 
 RESOURCES += \
     educazioni.qrc
@@ -48,7 +50,8 @@ OTHER_FILES += \
     qml/educazionik-framework/GameVocabularyAnswer.qml \
     qml/educazionik-framework/ConsonantsModel.qml \
     qml/educazionik-framework/CompareSet.qml \
-    qml/educazionik-framework/Set.qml
+    qml/educazionik-framework/Set.qml \
+    objectCreation.js
 
 
 

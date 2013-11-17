@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     viewer.rootContext()->setContextProperty("setexercise", &set);
 
-    viewer.addImportPath("qml/educazionik-framework/");
+    //viewer.addImportPath("qml/educazionik-framework/");
     viewer.setMainQmlFile(QStringLiteral("qml/educazionik-framework/main.qml"));
     viewer.showExpanded();
 

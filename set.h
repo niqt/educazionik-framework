@@ -4,23 +4,9 @@
 #include <QSet>
 #include <QObject>
 #include <QXmlStreamReader>
-#include "setitem.h"
 
+#include "setexercise.h"
 
-
-
-class SetExercise
-{
-public:
-    SetExercise(const QList<SetItem> &a, const QList<SetItem> &b, int solution) {m_setA = a; m_setB = b; m_solution = solution;}
-    Q_INVOKABLE QList<SetItem> setA() {return m_setA;}
-    QList<SetItem> setB() {return m_setB;}
-    int solution() {return m_solution;}
-private:
-    QList<SetItem> m_setA;
-    QList<SetItem> m_setB;
-    int m_solution;
-};
 
 
 class Set : public QObject
@@ -33,6 +19,10 @@ public:
     void load(QString fileName);
     void print();
     Q_INVOKABLE SetExercise exercise();
+    /*Q_INVOKABLE QString elementType(int index);
+    Q_INVOKABLE QString elementValue(int index);
+    Q_INVOKABLE int setBSize();*/
+    Q_INVOKABLE int setASize() const {return m_exericises.at(0).setA().size();}
 signals:
 
 public slots:

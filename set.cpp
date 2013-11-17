@@ -97,6 +97,8 @@ SetExercise Set::exercise()
     return m_exericises.at(0);
 }
 
+
+
 void Set::print()
 {
     for (int i = 0; i < m_exericises.length(); i++) {
