@@ -9,15 +9,52 @@ Rectangle {
     height: 1024
 
 
-    Set {
-        id: a
-        x:0
-        y:0
+    Grid {
+        id: signs
+        columns: 3
+        spacing: 30
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        DragText {
+            textItem: "<"
+        }
+
+
+
+        Text {
+            id: max
+            text: "="
+            font.pixelSize: 40
+        }
+        Text {
+            id: eq
+            text: "="
+            font.pixelSize: 40
+        }
     }
-    Set {
-        y: 0
-        x:400
-        id: b
+
+    Grid {
+        id:sets
+        anchors.top: signs.bottom
+        columns: 3
+        spacing: signs.width
+        anchors.horizontalCenter: parent.horizontalCenter
+        Set {
+            id: a
+            //x:0
+            //y:0
+        }
+        DropText {
+            id: answer
+            answerText: "?"
+        }
+
+
+        Set {
+            //y: 0
+            //x:400
+            id: b
+        }
     }
 
 }
