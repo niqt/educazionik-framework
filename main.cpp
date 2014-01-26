@@ -3,7 +3,7 @@
 #include "logic.h"
 #include <QQmlContext>
 #include "exercisevocabularyanswer.h"
-#include "set.h"
+#include "2setsexercise.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,10 +14,10 @@ int main(int argc, char *argv[])
     Logic logic(":/aggettivi.txt",  viewer.rootContext());
     ExerciseVocabularyAnswer vocabulary(":/parole.txt");
 
-    Set set;
+    TwoSetExercise set;
     set.load("/tmp/sets.xml");
 
-
+    set.print();
     viewer.rootContext()->setContextProperty("logic", &logic);
     viewer.rootContext()->setContextProperty("vocabulary", &vocabulary);
 

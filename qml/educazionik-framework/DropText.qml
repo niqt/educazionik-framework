@@ -29,8 +29,13 @@ DropArea {
                 PropertyChanges {
                     target: dropRectangle
                     color: "white"
-                    dragTarget.c
+
                 }
+                /*PropertyChanges {
+                    target: dragTarget.drag.source
+
+
+                }*/
             }
         ]
     }

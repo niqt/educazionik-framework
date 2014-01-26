@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.XmlListModel 2.0
+import QtQuick.Controls 1.1
 
 import "."
 
@@ -16,21 +17,20 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
 
         DragText {
+            id: minorDrag
             textItem: "<"
         }
-
-
-
-        Text {
-            id: max
-            text: "="
-            font.pixelSize: 40
+        DragText {
+            id: equalDrag
+            textItem: "="
         }
-        Text {
-            id: eq
-            text: "="
-            font.pixelSize: 40
+
+
+        DragText {
+            id: greaterDrag
+            textItem: ">"
         }
+
     }
 
     Grid {
@@ -56,5 +56,25 @@ Rectangle {
             id: b
         }
     }
+    Button {
+        id: nextButton
+        text: "Prossimo"
+        onClicked: {
 
+            minorDrag.init();
+        }
+    }
+    ListView {
+        anchors.top: sets.bottom
+        model: setexercise.setA();
+        width: 400
+        height: 400
+        delegate: Rectangle {
+
+        height: 25
+            width: 100
+
+            Text { text: modelData.value }
+        }
+    }
 }

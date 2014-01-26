@@ -9,10 +9,7 @@ Rectangle {
     width: 200
     height: 200
     color: "black"
-
-
-
-
+    property variant set: null;
     Grid {
         x: parent.x + 5
         y: parent.y + 5

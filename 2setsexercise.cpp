@@ -1,13 +1,14 @@
-#include "set.h"
+#include "2setsexercise.h"
 #include <QDebug>
 #include <QFile>
+#include <QList>
 
-Set::Set(QObject *parent) :
+TwoSetExercise::TwoSetExercise(QObject *parent) :
     QObject(parent)
 {
 }
 
-void Set::load(QString fileName)
+void TwoSetExercise::load(QString fileName)
 {
     QFile file(fileName);
     file.open(QIODevice::ReadOnly);
@@ -92,14 +93,14 @@ void Set::load(QString fileName)
 
 }
 
-SetExercise Set::exercise()
+SetExercise TwoSetExercise::exercise()
 {
     return m_exericises.at(0);
 }
 
 
 
-void Set::print()
+void TwoSetExercise::print()
 {
     for (int i = 0; i < m_exericises.length(); i++) {
         SetExercise current = m_exericises.at(i);
@@ -119,4 +120,14 @@ void Set::print()
         qDebug() << "Solution = " << solution;
         qDebug() << "--------------------------------\n\n";
     }
+}
+
+QVariant TwoSetExercise::setA()
+{
+    QList<QObject *> dataList;
+    for (int i = 0; i < m_exericises.at(0).setA().size(); i++) {
+        SetItem item = m_exericises.at(0).setA().at(i);
+        dataList.append(new SetItem(item.type(), item.value()));
+    }
+    return QVariant::fromValue(dataList);
 }
