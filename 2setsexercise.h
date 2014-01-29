@@ -25,6 +25,7 @@ public:
     Q_INVOKABLE int setBSize();*/
     Q_INVOKABLE int setASize() const {return m_exericises.at(0).setA().size();}
     Q_INVOKABLE QVariant setA();
+    Q_INVOKABLE QVariant setB();
 signals:
 
 public slots:

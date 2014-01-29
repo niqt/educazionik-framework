@@ -6,36 +6,40 @@ import QtQuick 2.0
 
 
 Rectangle {
-    width: 200
-    height: 200
+    //width: 400
+    //height: 400
     color: "black"
     property variant set: null;
+    property int nRows: 3
+    property int nColumns: 2
     Grid {
         x: parent.x + 5
         y: parent.y + 5
-        rows: 2
-        columns: 2
+        rows: nRows
+        columns: nColumns
         spacing: 10
         anchors.fill: parent
         Repeater {
             id: repeater
-            model: 4
+            model: set
             Rectangle {
-                width: 70
-                height: 70
+                width: ((parent.width / nColumns ) - ((nColumns - 1) * 10))
+                height: 200
                 color: "lightgreen"
 
                 Text {
-                    text: index
-                    font.pointSize: 30
+
+                    text:  modelData.value
+                    font.pixelSize: 30
                     anchors.centerIn: parent
+                    visible: (modelData.type == "text")
                 }
-                Text {
-                    text: index + "iffffffffffffffffff"
-                    font.pointSize: 30
-                    anchors.centerIn: parent
-                    visible: false
+                Image {
+                    id: name
+                    source: ((modelData.type == "image")?"/tmp/"+ modelData.value: "")
+                    visible: (modelData.type == "image")
                 }
+
             }
             Component.onCompleted: {
                 var i;

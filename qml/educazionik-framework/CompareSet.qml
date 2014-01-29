@@ -36,11 +36,15 @@ Rectangle {
     Grid {
         id:sets
         anchors.top: signs.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
         columns: 3
-        spacing: signs.width
-        anchors.horizontalCenter: parent.horizontalCenter
+        spacing: 30
+        //anchors.horizontalCenter: parent.horizontalCenter
         Set {
             id: a
+            set: setexercise.setA()
+            width: parent.width / 3
             //x:0
             //y:0
         }
@@ -54,6 +58,8 @@ Rectangle {
             //y: 0
             //x:400
             id: b
+            width: parent.width / 3
+            set: setexercise.setB()
         }
     }
     Button {
@@ -64,17 +70,5 @@ Rectangle {
             minorDrag.init();
         }
     }
-    ListView {
-        anchors.top: sets.bottom
-        model: setexercise.setA();
-        width: 400
-        height: 400
-        delegate: Rectangle {
 
-        height: 25
-            width: 100
-
-            Text { text: modelData.value }
-        }
-    }
 }

@@ -125,8 +125,18 @@ void TwoSetExercise::print()
 QVariant TwoSetExercise::setA()
 {
     QList<QObject *> dataList;
-    for (int i = 0; i < m_exericises.at(0).setA().size(); i++) {
-        SetItem item = m_exericises.at(0).setA().at(i);
+    for (int i = 0; i < m_exericises.at(1).setA().size(); i++) {
+        SetItem item = m_exericises.at(1).setA().at(i);
+        dataList.append(new SetItem(item.type(), item.value()));
+    }
+    return QVariant::fromValue(dataList);
+}
+
+QVariant TwoSetExercise::setB()
+{
+    QList<QObject *> dataList;
+    for (int i = 0; i < m_exericises.at(0).setB().size(); i++) {
+        SetItem item = m_exericises.at(0).setB().at(i);
         dataList.append(new SetItem(item.type(), item.value()));
     }
     return QVariant::fromValue(dataList);
