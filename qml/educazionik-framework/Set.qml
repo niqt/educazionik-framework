@@ -1,20 +1,23 @@
 import QtQuick 2.0
 
 
-
+import QtQuick.Window 2.0
 
 
 
 Rectangle {
     //width: 400
     //height: 400
-    color: "black"
+    //width: Screen.width / 3
+    //height: 200
+    id: mainRect
+    color: "grey"
     property variant set: null;
     property int nRows: 3
     property int nColumns: 2
     Grid {
-        x: parent.x + 5
-        y: parent.y + 5
+        //x: parent.x + 5
+        //y: parent.y + 5
         rows: nRows
         columns: nColumns
         spacing: 10
@@ -23,10 +26,10 @@ Rectangle {
             id: repeater
             model: set
             Rectangle {
-                width: ((parent.width / nColumns ) - ((nColumns - 1) * 10))
-                height: 200
+                width: mainRect.width / 2
+                height: name.height
                 color: "lightgreen"
-
+                //height: Screen.height / 2
                 Text {
 
                     text:  modelData.value
@@ -38,6 +41,8 @@ Rectangle {
                     id: name
                     source: ((modelData.type == "image")?"/tmp/"+ modelData.value: "")
                     visible: (modelData.type == "image")
+                    width: mainRect.width / 2
+                    fillMode: Image.PreserveAspectFit
                 }
 
             }
