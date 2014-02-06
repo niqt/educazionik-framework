@@ -23,6 +23,7 @@ Item {
                 parent = tile.Drag.target;
 
                 console.log("!null "+ tile.Drag.target);
+                mouseArea.enabled = false;
                 //enabledrag = false;
             } else {
                 parent =  root;
@@ -70,6 +71,7 @@ Item {
     }
     function init() {
         mouseArea.parent = root;
+        mouseArea.enabled = true;
         //mouseArea.enabled = true;
         //tile.Drag.active = mouseArea.drag.active;
         //mouseArea.drag.target = tile;

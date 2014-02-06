@@ -47,15 +47,16 @@ Rectangle {
             width: Screen.width / 5
             height: Screen.height / 3
             anchors.left: parent.left
-            anchors.top: signs.bottom
+            anchors.verticalCenter: parent.verticalCenter
             //x:0
             //y:0
         }
         DropText {
             id: answer
             answerText: "?"
-            anchors.top: signs.bottom
+            //anchors.top: signs.bottom
              anchors.horizontalCenter: parent.horizontalCenter
+             anchors.verticalCenter: parent.verticalCenter
         }
 
 
@@ -67,7 +68,7 @@ Rectangle {
             height: Screen.height / 3
             set: setexercise.setB()
             anchors.right: parent.right
-            anchors.top: signs.bottom
+            anchors.verticalCenter: parent.verticalCenter
         }
     //}
     Button {
