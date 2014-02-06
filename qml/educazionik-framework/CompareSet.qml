@@ -33,25 +33,29 @@ Rectangle {
 
     }
 
-    Grid {
+   /* Grid {
         id:sets
         anchors.top: signs.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         columns: 3
         spacing: 3
-        //anchors.horizontalCenter: parent.horizontalCenter
+        //anchors.horizontalCenter: parent.horizontalCenter*/
         Set {
             id: a
             set: setexercise.setA()
-            width: Screen.width / 3
+            width: Screen.width / 5
             height: Screen.height / 3
+            anchors.left: parent.left
+            anchors.top: signs.bottom
             //x:0
             //y:0
         }
         DropText {
             id: answer
             answerText: "?"
+            anchors.top: signs.bottom
+             anchors.horizontalCenter: parent.horizontalCenter
         }
 
 
@@ -59,11 +63,13 @@ Rectangle {
             //y: 0
             //x:400
             id: b
-            width: Screen.width / 3
-            height: Screen.height / 2
+            width: Screen.width / 5
+            height: Screen.height / 3
             set: setexercise.setB()
+            anchors.right: parent.right
+            anchors.top: signs.bottom
         }
-    }
+    //}
     Button {
         id: nextButton
         text: "Prossimo"

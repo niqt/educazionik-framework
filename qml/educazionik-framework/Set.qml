@@ -20,25 +20,26 @@ Rectangle {
         //y: parent.y + 5
         rows: nRows
         columns: nColumns
-        spacing: 10
+        spacing: 5
         anchors.fill: parent
         Repeater {
             id: repeater
             model: set
             Rectangle {
                 width: mainRect.width / 2
-                height: name.height
-                color: "lightgreen"
+                height: ((modelData.type == "text")?textElem.height:imgElem.height)
+                //color: "lightgreen"
                 //height: Screen.height / 2
                 Text {
-
+                    id: textElem
+                    width: parent.width
                     text:  modelData.value
                     font.pixelSize: 30
-                    anchors.centerIn: parent
+                    //anchors.centerIn: parent
                     visible: (modelData.type == "text")
                 }
                 Image {
-                    id: name
+                    id: imgElem
                     source: ((modelData.type == "image")?"/tmp/"+ modelData.value: "")
                     visible: (modelData.type == "image")
                     width: mainRect.width / 2
