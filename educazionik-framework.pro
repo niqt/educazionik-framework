@@ -23,9 +23,9 @@ SOURCES += main.cpp \
     logic.cpp \
     exercisemultianswer.cpp \
     exercisevocabularyanswer.cpp \
-    set.cpp \
     setitem.cpp \
-    setexercise.cpp
+    setexercise.cpp \
+    2setsexercise.cpp
 
 # Installation path
 # target.path =
@@ -41,7 +41,8 @@ HEADERS += \
     exercisevocabularyanswer.h \
     set.h \
     setitem.h \
-    setexercise.h
+    setexercise.h \
+    2setsexercise.h
 
 RESOURCES += \
     educazioni.qrc

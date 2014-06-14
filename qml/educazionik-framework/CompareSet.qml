@@ -75,8 +75,9 @@ Rectangle {
         id: nextButton
         text: "Prossimo"
         onClicked: {
-
+            equalDrag.init();
             minorDrag.init();
+            greaterDrag.init();
         }
     }
 
