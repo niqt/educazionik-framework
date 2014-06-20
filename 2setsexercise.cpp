@@ -6,6 +6,7 @@
 TwoSetExercise::TwoSetExercise(QObject *parent) :
     QObject(parent)
 {
+    m_current = 0;
 }
 
 void TwoSetExercise::load(QString fileName)
@@ -95,7 +96,7 @@ void TwoSetExercise::load(QString fileName)
 
 SetExercise TwoSetExercise::exercise()
 {
-    return m_exericises.at(0);
+    return m_exericises.at(m_current);
 }
 
 
@@ -125,8 +126,8 @@ void TwoSetExercise::print()
 QVariant TwoSetExercise::setA()
 {
     QList<QObject *> dataList;
-    for (int i = 0; i < m_exericises.at(1).setA().size(); i++) {
-        SetItem item = m_exericises.at(1).setA().at(i);
+    for (int i = 0; i < m_exericises.at(m_current).setA().size(); i++) {
+        SetItem item = m_exericises.at(m_current).setA().at(i);
         dataList.append(new SetItem(item.type(), item.value()));
     }
     return QVariant::fromValue(dataList);
@@ -135,9 +136,14 @@ QVariant TwoSetExercise::setA()
 QVariant TwoSetExercise::setB()
 {
     QList<QObject *> dataList;
-    for (int i = 0; i < m_exericises.at(0).setB().size(); i++) {
-        SetItem item = m_exericises.at(0).setB().at(i);
+    for (int i = 0; i < m_exericises.at(m_current).setB().size(); i++) {
+        SetItem item = m_exericises.at(m_current).setB().at(i);
         dataList.append(new SetItem(item.type(), item.value()));
     }
     return QVariant::fromValue(dataList);
+}
+
+void TwoSetExercise::next()
+{
+    m_current = (++m_current) % m_exericises.size();
 }
