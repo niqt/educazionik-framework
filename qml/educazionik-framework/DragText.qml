@@ -2,12 +2,15 @@ import QtQuick 2.0
 
 Item {
     id: root
-    property string colorKey
+    property string value: ""
     property string textItem: ""
     property bool enabledrag: true
 
 
     width: 64; height: 64
+
+    signal dropped()
+    signal noDropped()
 
     MouseArea {
         id: mouseArea
@@ -18,16 +21,13 @@ Item {
         drag.target: tile
         enabled: true
         onReleased: {
-            console.log("release");
             if (tile.Drag.target !== null) {
                 parent = tile.Drag.target;
-
-                console.log("!null "+ tile.Drag.target);
                 mouseArea.enabled = false;
-                //enabledrag = false;
+                root.dropped()
             } else {
                 parent =  root;
-                console.log("pp "+ tile.Drag.target);
+                root.noDropped()
             }
         }
         onClicked: {
@@ -42,9 +42,8 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
 
-            //color: colorKey
 
-            Drag.keys: [ colorKey ]
+            Drag.keys: [ value ]
             Drag.active: mouseArea.drag.active
             Drag.hotSpot.x: 32
             Drag.hotSpot.y: 32
@@ -72,9 +71,6 @@ Item {
     function init() {
         mouseArea.parent = root;
         mouseArea.enabled = true;
-        //mouseArea.enabled = true;
-        //tile.Drag.active = mouseArea.drag.active;
-        //mouseArea.drag.target = tile;
-        //mouseArea.anchors.centerIn = parent;
+
     }
 }

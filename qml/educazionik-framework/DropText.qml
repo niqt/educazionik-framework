@@ -1,14 +1,14 @@
-import QtQuick 2.0
+import QtQuick 2.2
 
 DropArea {
     id: dragTarget
 
-    property string colorKey
+    property string value: ""
     property alias dropProxy: dragTarget
     property string answerText: ""
 
     width: 64; height: 64
-    keys: [ colorKey ]
+    keys: [ value ]
 
     Rectangle {
         id: dropRectangle
@@ -31,11 +31,6 @@ DropArea {
                     color: "white"
 
                 }
-                /*PropertyChanges {
-                    target: dragTarget.drag.source
-
-
-                }*/
             }
         ]
     }
