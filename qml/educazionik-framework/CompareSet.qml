@@ -118,4 +118,10 @@ Rectangle {
         height: Screen.height / 10
         anchors.bottom: parent.bottom
     }
+
+    ScoreAnimation {
+        id: scoreAnimation
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+    }
 }
