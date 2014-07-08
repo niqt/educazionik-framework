@@ -3,5 +3,7 @@
         <file>aggettivi.txt</file>
         <file>parole.txt</file>
         <file>sets.xml</file>
+        <file>images/ko.jpg</file>
+        <file>images/ok.jpg</file>
     </qresource>
 </RCC>
