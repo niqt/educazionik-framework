@@ -22,9 +22,11 @@ Rectangle {
             value: "<"
             onDropped: {
                 console.log("DROPPED")
+                score.esatto();
             }
             onNoDropped: {
                 console.log("NODROPPED")
+                score.errato();
             }
         }
         DragText {
@@ -33,6 +35,11 @@ Rectangle {
             value: "="
             onDropped: {
                 console.log("DROPPED")
+                score.esatto();
+            }
+            onNoDropped: {
+                console.log("NODROPPED")
+                score.errato();
             }
         }
 
@@ -43,6 +50,11 @@ Rectangle {
             value: ">"
             onDropped: {
                 console.log("DROPPED")
+                score.esatto();
+            }
+            onNoDropped: {
+                console.log("NODROPPED")
+                score.errato();
             }
         }
 
@@ -75,6 +87,7 @@ Rectangle {
              anchors.verticalCenter: parent.verticalCenter
              onDropped: {
                  console.log("Dropped")
+
              }
         }
 
@@ -99,5 +112,10 @@ Rectangle {
             greaterDrag.init();
         }
     }
-
+    Score {
+        id: score
+        width: parent.width
+        height: Screen.height / 10
+        anchors.bottom: parent.bottom
+    }
 }
