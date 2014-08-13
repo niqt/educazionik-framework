@@ -11,7 +11,8 @@ Item {
     Component.onCompleted :{
         logic.start();
         //pageLoader.source = "GameVocabularyAnswer.qml";
-        pageLoader.source = "CompareSet.qml";
+        //pageLoader.source = "CompareSet.qml";
+        pageLoader.source = "GameMultiAnswer.qml";
     }
 
 

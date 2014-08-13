@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
 
     QtQuick2ApplicationViewer viewer;
 
-    Logic logic(":/aggettivi.txt",  viewer.rootContext());
+    //Logic logic(":/aggettivi.txt",  viewer.rootContext());
+    Logic logic(":/indeterminativo",  viewer.rootContext());
     ExerciseVocabularyAnswer vocabulary(":/parole.txt");
 
     TwoSetExercise set;
