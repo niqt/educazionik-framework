@@ -3,11 +3,23 @@
 #include <QFile>
 #include <QList>
 
+
+/*!
+ * \brief Constructor
+ * \param parent
+ */
+
 TwoSetExercise::TwoSetExercise(QObject *parent) :
     QObject(parent)
 {
     m_current = 0;
 }
+
+
+/*!
+ * \brief Load the exercise from xml file
+ * \param fileName the xml file
+ */
 
 void TwoSetExercise::load(QString fileName)
 {
@@ -94,12 +106,21 @@ void TwoSetExercise::load(QString fileName)
 
 }
 
+/*!
+ * \brief return the current exercise
+ * \return the exercise
+ */
+
 SetExercise TwoSetExercise::exercise()
 {
     return m_exericises.at(m_current);
 }
 
 
+
+/*!
+ * \brief print all exercises
+ */
 
 void TwoSetExercise::print()
 {
@@ -123,6 +144,11 @@ void TwoSetExercise::print()
     }
 }
 
+/*!
+ * \brief Return first set of the exercise
+ * \return the set
+ */
+
 QVariant TwoSetExercise::setA()
 {
     QList<QObject *> dataList;
@@ -133,6 +159,11 @@ QVariant TwoSetExercise::setA()
     return QVariant::fromValue(dataList);
 }
 
+/*!
+ * \brief Return second set of the exercise
+ * \return the set
+ */
+
 QVariant TwoSetExercise::setB()
 {
     QList<QObject *> dataList;
@@ -142,6 +173,10 @@ QVariant TwoSetExercise::setB()
     }
     return QVariant::fromValue(dataList);
 }
+
+/*!
+ * \brief move to next exercise
+ */
 
 void TwoSetExercise::next()
 {

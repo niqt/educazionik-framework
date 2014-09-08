@@ -2,6 +2,13 @@
 #include <QFile>
 #include <QTextStream>
 
+
+/*!
+ * \brief Constructor for the Vocabulary exercise
+ * \param file within the vocabulary
+ * \param parent
+ */
+
 ExerciseVocabularyAnswer::ExerciseVocabularyAnswer(QString file, QObject *parent)
 {
     QFile fd;
@@ -14,6 +21,13 @@ ExerciseVocabularyAnswer::ExerciseVocabularyAnswer(QString file, QObject *parent
         m_error = true;
     }
 }
+
+
+/*!
+ * \brief Verify if the answer is correct
+ * \param answer the answer
+ * \return corretness
+ */
 
 bool ExerciseVocabularyAnswer::answerFounded(QString answer)
 {

@@ -2,6 +2,14 @@
 #include <QTextStream>
 #include <QFile>
 
+
+
+/*!
+ * \brief Constructor of the Multi Answer exercise
+ * \param file the file of the exercise
+ * \param parent
+ */
+
 ExerciseMultiAnswer::ExerciseMultiAnswer(QString file, QObject *parent) :
     QObject(parent)
 {
@@ -31,20 +39,41 @@ ExerciseMultiAnswer::ExerciseMultiAnswer(QString file, QObject *parent) :
     srand(time(0));
 }
 
+/*!
+ * \brief Return the correct answer
+ * \return the answer
+ */
+
 QString ExerciseMultiAnswer::answer()
 {
     return m_answer;
 }
+
+/*!
+ * \brief Return the question of the exercise
+ * \return the question
+ */
 
 QString ExerciseMultiAnswer::question()
 {
     return m_question;
 }
 
+
+/*!
+ * \brief Return all the answers (1 ok and others ko)
+ * \return
+ */
+
 QStringList ExerciseMultiAnswer::answers()
 {
     return m_answers;
 }
+
+
+/*!
+ * \brief go to the next exercise
+ */
 
 void ExerciseMultiAnswer::next()
 {
@@ -84,7 +113,10 @@ void ExerciseMultiAnswer::next()
     m_answer = dum;
 }
 
-
+/*!
+ * \brief Return number of answers for qte question
+ * \return the number of answer
+ */
 int ExerciseMultiAnswer::answersNumber() const
 {
     return m_answersNumber;
